@@ -52,35 +52,14 @@ curl %LURL%/TotalCMD/LICENSE --output LICENSE
 curl %LURL%/TotalCMD/README.md --output README.md
 goto done_%ARCH%
 
-REM Currently we build 4 architectures
+REM Currently we build 1 architectures
 :start
-SET ARCH=x32
-SET ZIP32=
-SET BIN=%WD%\bin-x86
-SET TCDLL=tc7z.dll
-goto doit
-:done_x32
-
 SET ARCH=x64
 SET ZIP32=%WD%\bin-x86\7-zip.dll
 SET BIN=%WD%\bin-x64
 SET TCDLL=tc7z64.dll
 goto doit
 :done_x64
-
-SET ARCH=arm
-SET ZIP32=
-SET BIN=%WD%\bin-arm
-SET TCDLL=tc7zarm.dll
-goto doit
-:done_arm
-
-SET ARCH=arm64
-SET ZIP32=%WD%\bin-arm\7-zip.dll
-SET BIN=%WD%\bin-arm64
-SET TCDLL=tc7zarm64.dll
-goto doit
-:done_arm64
 
 cd %WD%\totalcmd
 %SZIP% a ..\TotalCmd.7z %COPTS%
